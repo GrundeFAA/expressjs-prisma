@@ -16,8 +16,12 @@ scheduleJob("0 */2 * * *", () => {
 app.use(express.json());
 app.use(express.raw({ type: "application/vnd.custom-type" }));
 
-app.get("/", async (req, res) => {
+app.get("/jobs", async (req, res) => {
   res.json(jobs);
+});
+
+app.get("/", async (req, res) => {
+  res.send("test");
 });
 
 app.listen(port, () => {
